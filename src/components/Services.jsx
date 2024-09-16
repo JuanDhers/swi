@@ -1,12 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FadeUp } from "./Hero";
-import Ine_circle from '../assets/ine_circle_1.png'
-import { FaBookReader } from "react-icons/fa";
-import { GrUserExpert } from "react-icons/gr";
-import { MdOutlineAccessTime } from "react-icons/md";
+// import Ine_circle from '../assets/ine_circle_1.png'
+// import { FaBookReader } from "react-icons/fa";
+// import { GrUserExpert } from "react-icons/gr";
+// import { MdOutlineAccessTime } from "react-icons/md";
 import Wave from '../assets/wave_2.svg'
-import WaveRevert from '../assets/wave_2_2.png'
+// import WaveRevert from '../assets/wave_2_2.png'
 import Confidence from '../assets/icons/Confidence.png'
 import Culture from '../assets/icons/culture.png'
 import Fluency from '../assets/icons/Fluency.png'
