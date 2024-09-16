@@ -8,7 +8,7 @@ import { MdOutlineAccessTime } from "react-icons/md";
 import Wave from '../assets/wave_2.svg'
 import WaveRevert from '../assets/wave_2_2.png'
 import Confidence from '../assets/icons/Confidence.png'
-import Culture from '../assets/icons/Culture.png'
+import Culture from '../assets/icons/culture.png'
 import Fluency from '../assets/icons/Fluency.png'
 import Grammar from '../assets/icons/Grammar.png'
 import Vocabulary from '../assets/icons/Vocabulary_1_2.svg'
