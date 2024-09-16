@@ -1,0 +1,12 @@
+<svg  xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="50%" height="50%" viewBox="0 -10 120 120">
+
+
+   
+  
+	 <path id="top-sector" style="fill:none;stroke:none" d="M 1,50 A 36,46.5 1 1 1 10.5,100" /> 
+	<text text-anchor="middle">
+      <textPath xlink:href="#top-sector" startOffset="50%" style="font-size: 20px; font-weight:700;">Spanish with Inés</textPath>
+    </text>
+
+</svg>

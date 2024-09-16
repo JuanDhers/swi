@@ -1,0 +1,68 @@
+[
+    {
+        "name": "Sam",
+        "nation": "br",
+        "review": "I started taking Spanish classes with Ines about 2 years ago, and what an amazing investment that has been! I am have intermediate/advaced Spanish and from the start she met me wheate I was and kept pushing me to the next level. The classes are so interective, I not only never bored, but I always learn new things. She brings the right amount of grammar, so I continue to improve my wrinting skills, but it doesn't feel like a burden. I would recomend her class to anyone that wants to take their Spanish to the next level, or simply want to start learning. I am confident that she will make you want to keep going back yo learn more!",
+        "background": "",
+        "col":""
+    },
+    {
+      "name": "Clarke",
+      "nation": "us",
+      "review": "Ines was very pleasant to speak with. She did a wonderful job of finding the balance between proactive help and leaving room for me to push through challenging parts. Her Spanish is extremely clear, and she is very mindful of the level of her own vocabulary and grammar when speaking. I will definitely be continuing!",
+      "background": "",
+      "col":"md:col-[4/6]"
+    },
+    {
+      "name": "Claire",
+      "nation": "uk",
+      "review": "I absolutely love learning with Ines, she’s able to explain things well, motivate me and makes lessons fun. She’s also very patient with my constant questions and doesn’t mind pausing a lesson for me to understand things better. I can’t wait to keep learning Spanish with Ines!",
+      "background": "",
+      "col":""
+    },
+    {
+      "name": "Sander",
+      "nation": "ho",
+      "review": "A very very good teacher! I really have the felling that i'm already learning very much and she is very patient with me. Highly recommend!",
+      "background": ""
+    },
+    {
+      "name": "Islem",
+      "nation": "eg",
+      "review": "Excellent and amazing teacher ! The way she is teaching just wonderful. Really i love it . I was so happy since my first session and i loved and i am excited to learn more and waiting for my next sessions . Totally advised ! Thank you so much teacher . Don’t hesitate to book your class with her",
+      "background": "",
+      "col":""
+    },
+    {
+      "name": "Sharita",
+      "nation": "us",
+      "review": "Ines is knowledgeable, patient, encouraging, and kind. I am enjoying working with her.",
+      "background": "",
+      "col":""
+    }, 
+    
+    {
+        "name": "François",
+        "nation": "fr",
+        "review": "Inés’s classes have really helped me overcome my fear of speaking Spanish. I’m a begginer, and her conversational approach and supportive environment made me feel confident from the first class. Thank you Inés!",
+        "background": "",
+        "col":""
+      },
+      
+      {
+        "name": "Jamie",
+        "nation": "au",
+        "review": "I absolutely love how fun and engaging Inés’s classes are! The interactive games and activities she uses make learning Spanish feel like a game. It’s not just about studying; it’s about enjoying the process. These dynamic lessons have made a huge difference in my motivation and progress.",
+        "background": "",
+        "col":""
+      }, 
+
+      {
+        "name": "Elena",
+        "nation": "cr",
+        "review": "What I really appreciate about Inés’s classes is the way she integrates cultural insights into our learning. It’s not just about improving my Spanish skills; I’m also gaining a deeper understanding of Spanish-speaking cultures. Her classes are a great blend of language learning and cultural exploration.",
+        "background": "",
+        "col":""
+      }    
+  ]
+  
