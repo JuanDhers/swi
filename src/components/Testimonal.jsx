@@ -1,4 +1,4 @@
-import reviewsData from './reviews.json';
+import reviewsData from './utils/reviews.json';
 import stars from '../assets/icons/stars.svg'
 import quoteClose from '../assets/icons/quote-close.svg'
 import au from '../assets/icons/Flags/au.svg';
