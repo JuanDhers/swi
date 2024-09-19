@@ -48,12 +48,12 @@ export const Testimonial = () => {
   return (
     <section className="testimonials flex justify-center items-center flex-col py-12 px-4 lg:px-8">
       <div className="text-center">
-        <h2 className="py-4 text-2xl lg:text-4xl font-bold text-zinc-700">Happy students!</h2>
+        <h2 className="text-4xl md:text-6xl mb-10 text-stone-700 font-title tracking-wides font-bold text-center">Happy students!</h2>{/*     py-4 text-2xl lg:text-4xl font-bold text-zinc-700 */}
       </div>
 
       <div className="w-full max-w-screen-lg">
         <Swiper
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]}
           spaceBetween={30}
           slidesPerView={1}
           breakpoints={{
@@ -61,10 +61,10 @@ export const Testimonial = () => {
             768: { slidesPerView: 2, spaceBetween: 30 },
             1024: { slidesPerView: 3, spaceBetween: 40 },
           }}
-          // autoplay={{
-          //   delay: 2000,
-          //   disableOnInteraction: false,
-          // }}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+          }}
           pagination={{ clickable: true }}
         className='p-4'>
           {reviewsData.map((review, index) => (
@@ -77,19 +77,29 @@ export const Testimonial = () => {
                 </div>
 
                 {/* Contenedor de contenido con tamaño fijo */}
-                <div className="h-40 overflow-hidden">
+                  {
+                    review.review.length > 150 ?
+                <div className="h-40 overflow-hidden shadow-[inset_4px_-18px_8px_-8px_rgba(50,50,50,0.1)]">
+                    <blockquote className="mt-4 text-base lg:text-lg font-normal leading-relaxed">
+                    {review.review}
+                  </blockquote>
+                  </div>
+                  :
+                  <div className="h-40 overflow-hidden">
                   <blockquote className="mt-4 text-base lg:text-lg font-normal leading-relaxed">
                     {review.review}
                   </blockquote>
-                </div>
+                  </div>
+                  }
+                
 
                 {/* Botón para ver más */}
                 {review.review.length > 150 && (
                   <button
                     onClick={() => openModal(review)}
-                    className="mt-4 bg-amber-400 py-1 px-2 text-amber-900 rounded text-sm"
+                    className="mt-4 bg-amber-50 py-1 px-2 text-amber-600 rounded text-sm"
                   >
-                    Show more
+                    Read more
                   </button>
                 )}
 

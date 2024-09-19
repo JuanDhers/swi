@@ -5,7 +5,8 @@ import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
 // import { Testimonials } from './components/Testimonials'
-import { Testimonial } from './components/Testimonal'
+import { Testimonial } from './components/Testimonal';
+import {FAQ} from './components/FAQ'
 
 import Services from './components/Services'
 function App() {
@@ -17,6 +18,7 @@ function App() {
     <Services/>
     <About/>
     <Testimonial/>
+    <FAQ/>
     </main>
   )
 }

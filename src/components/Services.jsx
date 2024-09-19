@@ -19,7 +19,7 @@ const Banner2 = () => {
         <img className="w-full" src={Wave} alt="" />
         <div className="bg-[#FEF08A] p-4 flex justify-center align-center">
             <div className="max-w-3xl ">
-        <h2 className="text-4xl md:text-6xl mb-10 text-stone-700 font-title tracking-wides font-bold text-center">Ready to get started?</h2>
+        <h2 className="text-4xl md:text-6xl mb-10 text-stone-700 font-title tracking-wides font-bold text-center">Ready to get started?</h2> {/*text-4xl md:text-6xl mb-10 text-stone-700 font-title tracking-wides font-bold text-center */}
         
 
         {/* Banner Image */}
