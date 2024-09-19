@@ -3,3 +3,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.testimonials .swiper{
+    padding: 0.2rem;
+}
+.swiper-pagination .swiper-pagination-bullet-active{
+    background: #b45309;
+}
