@@ -79,7 +79,7 @@ export const Testimonial = () => {
                 {/* Contenedor de contenido con tamaño fijo */}
                   {
                     review.review.length > 150 ?
-                <div className="h-40 overflow-hidden shadow-[inset_4px_-18px_8px_-8px_rgba(50,50,50,0.1)]">
+                <div className="h-40 overflow-hidden shadow-[inset_4px_-18px_8px_-8px_rgba(210,210,210,0.1)]">
                     <blockquote className="mt-4 text-base lg:text-lg font-normal leading-relaxed">
                     {review.review}
                   </blockquote>
@@ -97,7 +97,7 @@ export const Testimonial = () => {
                 {review.review.length > 150 && (
                   <button
                     onClick={() => openModal(review)}
-                    className="mt-4 bg-amber-50 py-1 px-2 text-amber-600 rounded text-sm"
+                    className="mt-4 bg-zinc-100 py-1 px-2 text-zinc-700 rounded text-sm"
                   >
                     Read more
                   </button>
