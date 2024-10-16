@@ -8,7 +8,7 @@ import Fluency from '../assets/icons/Fluency.png';
 import Grammar from '../assets/icons/Grammar.png';
 import Vocabulary from '../assets/icons/Vocabulary_1_2.svg';
 
-const Banner2 = () => {
+const Services = () => {
   return (
     <section>
       {/* <img className="w-full" src={Wave} alt="Wave" /> */}
@@ -86,4 +86,4 @@ const Banner2 = () => {
   );
 };
 
-export default Banner2;
+export default Services;

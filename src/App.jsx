@@ -9,15 +9,15 @@ import { About } from './components/About'
 import { Testimonial } from './components/Testimonal';
 import {FAQ} from './components/FAQ'
 
-import Services from './components/Services'
-import { Banner } from './components/banner';
+import Services from './components/Services';
+import {Banner}  from './components/Banner';
 function App() {
 
   return (
     <main className='overflow-x-hidden bg-[#fff] text-[#323232]'>
      <Navbar />
     <Hero/>
-    <Banner />
+    <Banner/>
     <Services/>
     <About/>
     <Testimonial/>
