@@ -1,6 +1,7 @@
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import { motion } from "framer-motion"; //animate
 import Ine_circle from '../assets/ine_circle_1.png';
+import swi_hero_img from '../assets/swi_hero_img.png';
 
 export const FadeUp = (delay) => {
   return {
@@ -45,7 +46,7 @@ export const Hero = () => {
             className="mt-4 lg:mt-2 mb-8 text-xl lg:text-2xl text-stone-500"
           >
             No matter your level, everyone can speak Spanish! <br />
-            Find out how my conversational approach can help you get confident with Spanish right away!
+            Our classes use a conversational approach to help you get comfortable with the language right from the start.
           </motion.h3>
 
           {/* Call to Action Button */}
@@ -64,7 +65,7 @@ export const Hero = () => {
 
         {/* Image Section */}
         <div className="lg:w-1/3 w-full mt-8 lg:mt-0 flex justify-center lg:justify-end mb-4">
-          <img src={Ine_circle} alt="Ines" className="w-64 lg:w-96 h-auto" />
+          <img src={swi_hero_img} alt="Ines" className="w-64 lg:w-96 h-auto" />
         </div>
       </div>
     </section>

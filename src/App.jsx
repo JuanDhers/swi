@@ -3,11 +3,11 @@
 // import viteLogo from '/vite.svg'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero';
-import {Counter} from './components/Counter';
 import { About } from './components/About'
 // import { Testimonials } from './components/Testimonials'
 import { Testimonial } from './components/Testimonal';
-import {FAQ} from './components/FAQ'
+import {FAQ} from './components/FAQ';
+import Pricing from './components/Pricing';
 
 import Services from './components/Services';
 import {Banner}  from './components/Banner';
@@ -21,6 +21,7 @@ function App() {
     <Services/>
     <About/>
     <Testimonial/>
+    <Pricing/>
     <FAQ/>
     </main>
   )
