@@ -1,6 +1,6 @@
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import { motion } from "framer-motion"; //animate
-import Ine_circle from '../assets/ine_circle_1.png';
+// import Ine_circle from '../assets/ine_circle_1.png';
 import swi_hero_img from '../assets/swi_hero_img.png';
 
 export const FadeUp = (delay) => {
