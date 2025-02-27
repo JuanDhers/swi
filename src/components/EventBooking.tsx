@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db, collection, query, where, getDocs, addDoc } from "../../firebaseConfig";
 // import firebase from "firebase/compat/app";
 import CustomCalendar from "./CustomCalendar"; // Importamos el calendario personalizado
+import StepIndicator from "./StepIndicator";
 
 interface EventSlot {
   time: string;
@@ -41,6 +42,7 @@ const EventBooking: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [confirmEmail, setConfirmEmail] = useState<string>("");
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
+  const [fullNameError, setFullNameError] = useState<boolean>(false);
   const [emailError, setEmailError] = useState<string>("");
   const [allowedTimesART, setAllowedTimesART] = useState<string[]>([]);
 console.log("allowedTimesART",allowedTimesART)
@@ -86,7 +88,10 @@ console.log("allowedTimesART",allowedTimesART)
   useEffect(() => {
     const emailMatch = email === confirmEmail;
     setEmailError(emailMatch ? "" : "Los correos electrónicos no coinciden");
-    
+
+    const fullNameMatch = isValidName(fullName)
+    setFullNameError(fullNameMatch)
+    console.log("fullNameMatch",fullNameError)
     setIsFormValid(
       isValidName(fullName) &&
       isValidEmail(email) &&
@@ -123,20 +128,20 @@ console.log("allowedTimesART",allowedTimesART)
     return allowedTimes.map(time => ({ time, available: true }));
   };
 
-  const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const date = event.target.value;
-    if (isWeekend(date)) {
-      alert("No se pueden reservar eventos los sábados ni domingos.");
-      setSelectedDate("");
-      return;
-    }
-    if (isPastDate(date)) {
-      alert("No se pueden reservar fechas pasadas.");
-      setSelectedDate("");
-      return;
-    }
-    setSelectedDate(date);
-  };
+  // const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const date = event.target.value;
+  //   if (isWeekend(date)) {
+  //     alert("No se pueden reservar eventos los sábados ni domingos.");
+  //     setSelectedDate("");
+  //     return;
+  //   }
+  //   if (isPastDate(date)) {
+  //     alert("No se pueden reservar fechas pasadas.");
+  //     setSelectedDate("");
+  //     return;
+  //   }
+  //   setSelectedDate(date);
+  // };
 
   const handleTimeSelection = (time: string) => {
     setSelectedTime(time);
@@ -166,10 +171,19 @@ const handleBooking = async () => {
   const q = query(reservasRef, where("date", "==", selectedDate), where("time", "==", selectedTime));
   const querySnapshot = await getDocs(q);
 
+  const qEmail = query(reservasRef, where("email", "==", confirmEmail));
+  const querySnapshotEmail = await getDocs(qEmail);
+
+  if(!querySnapshotEmail.empty){
+    alert("ya has reservado");
+    return
+  }
+
   if (!querySnapshot.empty) {
     alert("Ese horario ya está reservado.");
     return;
   }
+
 
   await addDoc(reservasRef, { fullName, email, date: selectedDate, time: selectedTime });
   alert(`Reserva confirmada para el ${selectedDate} a las ${selectedTime}.`);
@@ -182,7 +196,11 @@ const handleBooking = async () => {
   return (
     <div className="flex flex-col bg-gradient-to-br min-h-full p-8 max-w-screen-lg justify-center items-center mx-auto">
       <h2 className="text-4xl md:text-6xl mb-10 text-stone-700 font-title tracking-wides font-bold text-center">Reserva una clase de prueba</h2>
+      
+      <StepIndicator selectedDate={!!selectedDate} selectedTime={!!selectedTime} fullName={fullName} email={email} confirmEmail={confirmEmail} />
+    
     <div className="flex flex-col md:flex-row gap-8 justify-center">
+
       <div>
       {/* 📅 PASAMOS selectedDate PARA QUE SE QUEDE SELECCIONADO */}
 <CustomCalendar selectedDate={selectedDate} onSelectDate={setSelectedDate} />
@@ -215,6 +233,7 @@ const handleBooking = async () => {
           value={fullName} 
           onChange={(e) => setFullName(e.target.value)} 
         />
+        {!fullNameError && fullName ? <p className="text-red-500 text-xs">Ingresa nombre y apellido</p> : <p className="text-red-500 text-xs text-opacity-0"> ""</p>} 
       </label>
       <label className="block my-2">Correo electrónico:*
         <input 
