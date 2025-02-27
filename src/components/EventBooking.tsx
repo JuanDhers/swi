@@ -13,18 +13,18 @@ interface EventSlot {
 
 
 
-const isWeekend = (dateString: string): boolean => {
-  const date = new Date(dateString);
-  const day = date.getDay();
-  return day === 6 || day === 0;
-};
+// const isWeekend = (dateString: string): boolean => {
+//   const date = new Date(dateString);
+//   const day = date.getDay();
+//   return day === 6 || day === 0;
+// };
 
-const isPastDate = (dateString: string): boolean => {
-  const selectedDate = new Date(dateString);
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return selectedDate < today;
-};
+// const isPastDate = (dateString: string): boolean => {
+//   const selectedDate = new Date(dateString);
+//   const today = new Date();
+//   today.setHours(0, 0, 0, 0);
+//   return selectedDate < today;
+// };
 
 const isValidEmail = (email: string): boolean => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -77,9 +77,10 @@ console.log("allowedTimesART",allowedTimesART)
     getTimes();
   }, []);
 
+  // ACA
   useEffect(() => {
     if (selectedDate) {
-      setTimeSlots(generateTimeSlots());
+      fetchReservedTimes(selectedDate);
     } else {
       setTimeSlots([]);
     }
@@ -119,14 +120,26 @@ console.log("allowedTimesART",allowedTimesART)
     });
   };
   
-  
-  const allowedTimes = getAllowedTimesForUser();
-  console.log(allowedTimes); // Muestra los horarios convertidos a la zona horaria del usuario
-  
-  
-  const generateTimeSlots = (): EventSlot[] => {
-    return allowedTimes.map(time => ({ time, available: true }));
+  // ACA agergea fetchreservedTimes
+
+  const fetchReservedTimes = async (date: string) => {
+    const reservasRef = collection(db, "reservas");
+    const q = query(reservasRef, where("date", "==", date));
+    const querySnapshot = await getDocs(q);
+    const reservedTimes = querySnapshot.docs.map(doc => doc.data().time);
+    const availableSlots = getAllowedTimesForUser()
+      .filter(time => !reservedTimes.includes(time))
+      .map(time => ({ time, available: true }));
+    setTimeSlots(availableSlots);
   };
+
+  // const allowedTimes = getAllowedTimesForUser();
+  // console.log(allowedTimes); // Muestra los horarios convertidos a la zona horaria del usuario
+  
+  
+  // const generateTimeSlots = (): EventSlot[] => {
+  //   return allowedTimes.map(time => ({ time, available: true }));
+  // };
 
   // const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   //   const date = event.target.value;
@@ -211,6 +224,7 @@ const handleBooking = async () => {
 {!selectedDate ? <h4 className="font-semibold">Selecciona una fecha para ver los horarios disponibles.</h4> : <h4 className="font-semibold">Selecciona un horario:</h4>}
       
       {selectedDate && (
+        timeSlots.length ?
         
         <div className={`grid grid-cols-${timeSlots.length} gap-2 mt-2`}>
         {timeSlots.map(({ time, available }) => (
@@ -224,6 +238,8 @@ const handleBooking = async () => {
           </button>
         ))}
       </div>
+      :
+      <p className="text-red-500 text-xs">No hay horarios disponibles para la fecha seleccionada</p>
 )}
 </div>
       <label className="block my-2">Nombre completo:*
