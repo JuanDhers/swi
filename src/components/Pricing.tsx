@@ -13,7 +13,7 @@ export default function Component() {
 
     return (
         <section className='pt-8 bg-gradient-to-b from-amber-50 to-white'>
-            <h2 className="text-4xl md:text-6xl text-stone-700 font-title pt-4 tracking-wides font-bold text-center">Choose your planss!</h2>
+            <h2 className="text-4xl md:text-6xl text-stone-700 font-title pt-4 tracking-wides font-bold text-center">Choose your plan!</h2>
         <div className="flex flex-col md:flex-row gap-8 justify-center items-center my  p-16 pt-8">
             {paquetes.map((paquete, index) => (
                 <div
