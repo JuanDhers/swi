@@ -5,7 +5,7 @@ import './index.css'
 // import { Hero } from './components/Hero.jsx'
 // import { Testimonials } from './components/Testimonials.jsx'
 // import { About} from './components/About.jsx'
-import App from './App.jsx'
+import App from './App.tsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
