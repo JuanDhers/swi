@@ -9,16 +9,32 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: '¿Cómo puedo registrarme?',
-    answer: 'Para registrarte, haz clic en el botón de registro y sigue los pasos que se indican.',
+    question: '¿Cómo puedo reservar una clase?',
+    answer: 'Para reservar una clase, selecciona un horario disponible en el calendario y sigue los pasos para completar el pago.',
   },
   {
-    question: '¿Cuál es el horario de atención?',
-    answer: 'Nuestro horario de atención es de lunes a viernes, de 9:00 a 18:00 horas.',
+    question: '¿Cuánto dura cada clase?',
+    answer: 'Cada clase tiene una duración de 45 minutos.',
   },
   {
-    question: '¿Qué métodos de pago aceptan?',
-    answer: 'Aceptamos tarjetas de crédito, débito y PayPal.',
+    question: '¿Por qué plataforma se dictan las clases?',
+    answer: 'Las clases se realizan a través de Zoom. Recibirás el enlace de la reunión después de confirmar tu reserva.',
+  },
+  {
+    question: '¿Qué niveles de español enseñas?',
+    answer: 'Ofrezco clases para todos los niveles: principiante, intermedio y avanzado.',
+  },
+  {
+    question: '¿El material de estudio está incluido?',
+    answer: 'Sí, todo el material audiovisual y ejercicios están incluidos en la clase.',
+  },
+  {
+    question: '¿Qué métodos de pago aceptas?',
+    answer: 'Acepto tarjetas de crédito, débito y PayPal.',
+  },
+  {
+    question: '¿Puedo cancelar o reprogramar mi clase?',
+    answer: 'Sí, puedes cancelar o reprogramar tu clase con al menos 24 horas de anticipación.',
   },
 ];
 
@@ -32,9 +48,8 @@ export const FAQ = () => {
   }
 
   return (
-    <div className='w-full bg-red-100 p-2'>
-      <h2>EN PRODUCION!!! NO Tener en cuenta</h2>
-      <div className="w-full max-w-screen-lg mx-auto my-8 p-10 bg-red-100 rounded">
+    <div className='w-full  p-2'>
+      <div className="w-full max-w-screen-lg mx-auto my-8 p-10  rounded">
         <h2 className="text-4xl md:text-6xl mb-8 text-stone-700 font-title tracking-wides font-bold text-center">Preguntas Frecuentes</h2>
         {faqs.map((faq, index) => (
           <div key={index} className="">
@@ -43,10 +58,10 @@ export const FAQ = () => {
               onClick={() => toggleFAQ(index)}
             >
               <span className="text-lg">{faq.question}</span>
-              <span className="text-2xl text-red-400">{activeIndex === index ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />}</span>
+              <span className="text-2xl text-amber-400">{activeIndex === index ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />}</span>
             </button>
             {activeIndex === index && (
-              <div className="pl-4 pr-2 p-4 text-gray-600 bg-red-50 rounded">
+              <div className="pl-4 pr-2 p-4 text-gray-900 bg-amber-50 rounded">
                 {faq.answer}
               </div>
             )}

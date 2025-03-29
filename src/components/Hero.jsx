@@ -57,7 +57,7 @@ export const Hero = () => {
             className="flex justify-center lg:justify-start"
           >
             <button className="bg-amber-500 font-bold py-3 px-6 rounded-md text-white flex items-center group">
-              Book your class
+              Book a FREE class!
               <MdOutlineCalendarMonth className="ml-2 text-xl group-hover:translate-x-2 group-hover:-rotate-45 duration-300" />
             </button>
           </motion.div>
