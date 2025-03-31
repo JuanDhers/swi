@@ -198,7 +198,134 @@ const handleBooking = async () => {
   }
 
 
-  await addDoc(reservasRef, { fullName, email, date: selectedDate, time: selectedTime });
+  await addDoc(reservasRef, { 
+    fullName, 
+    email, 
+    to: email, // Agregamos el campo 'to' para el trigger
+    message: {
+      subject: "Confirmación de Reserva", // Asunto del correo
+      html: `
+      <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificación</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #fffbeb; /* amber-50 */
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Container styles */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header styles */
+        .header {
+            background-color: #f59e0b; /* amber-500 */
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .header h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        /* Content styles */
+        .content {
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        
+        /* Button styles */
+        .button {
+            display: inline-block;
+            background-color: #eab308; /* yellow-500 */
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        /* Footer styles */
+        .footer {
+            background-color: #fef08a; /* yellow-200 */
+            padding: 15px;
+            text-align: center;
+            border-radius: 0 0 8px 8px;
+            font-size: 14px;
+            color: #666666;
+        }
+        
+        /* Highlight box */
+        .highlight-box {
+            background-color: #fffbeb; /* amber-50 */
+            border-left: 4px solid #f59e0b; /* amber-500 */
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+                border-radius: 0;
+            }
+            
+            .header, .footer {
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Spanis with Inés</h1>
+        </div>
+        
+        <div class="content">
+            <p>Hola <strong>${fullName}</strong>!</p>
+            
+            <p>Realizate agendaste una clase de prueba!</p>
+            
+            <div class="highlight-box">
+                <p><strong>Detalles:</strong></p>
+                <p>Fecha: ${selectedDate}</p>
+                <p>Horario: ${selectedTime}</p>
+                <a target="_blank" href="https://us06web.zoom.us/j/3414482534">Zoom</a>
+            </div>
+            
+            <p>Si tiene alguna pregunta o necesita asistencia adicional, no dude en contactarnos.</p>
+            
+            <p>Saludos,<br>
+            Inés</p>
+        </div>
+      
+    </div>
+</body>
+</html>
+      ` // Cuerpo del correo
+    },
+    date: selectedDate, 
+    time: selectedTime });
   alert(`Reserva confirmada para el ${selectedDate} a las ${selectedTime}.`);
 
   // Opcional: enviar email de confirmación

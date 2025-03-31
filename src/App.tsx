@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import {FAQ} from './components/FAQ';
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsAndConditions from './components/TermsAndConditions'
+// import WorkInProgress from "./components/WorkInProgress";
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
         {/* Rutas específicas para cada componente */}
         <Route path="/" element={
           <>
+{/* <WorkInProgress /> */}
           <Hero />
           <About />
           <Pricing />
