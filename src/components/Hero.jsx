@@ -1,5 +1,6 @@
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import { motion } from "framer-motion"; //animate
+import { useLanguage } from './utils/LanguageContext';
 // import Ine_circle from '../assets/ine_circle_1.png';
 import swi_hero_img from '../assets/swi_hero_img.png';
 
@@ -24,6 +25,7 @@ export const FadeUp = (delay) => {
 };
 
 export const Hero = () => {
+  const { language } = useLanguage();
   return (
     <section className="flex flex-col lg:flex-row justify-center items-center  h-auto ">{/*bg-gradient-to-t from-yellow-200 via-purple-500 to-amber-100 */}
       <div className="flex flex-col-reverse lg:flex-row items-center justify-around pb-16 lg:py-16 px-6 lg:px-16 w-full lg:max-w-7xl">
@@ -36,7 +38,15 @@ export const Hero = () => {
             animate="animate"
             className="text-4xl md:text-6xl lg:text-8xl text-stone-700 font-title font-bold tracking-wide"
           >
-            Speak Spanish from <span className="text-amber-400">class one</span>!
+
+{language === "es" ? (
+        <>¡Habla español desde la <span className="text-amber-400">primera clase!</span></>
+      ) : (
+         <>Speak Spanish from <span className="text-amber-400">class one!</span></>
+      )}
+{/* 
+
+            Speak Spanish from <span className="text-amber-400">class one</span>! */}
           </motion.h1>
 
           <motion.h3

@@ -12,12 +12,14 @@ import Footer from "./components/Footer";
 import {FAQ} from './components/FAQ';
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsAndConditions from './components/TermsAndConditions'
+import { LanguageProvider } from './components/utils/LanguageContext';
 // import WorkInProgress from "./components/WorkInProgress";
 
 const App: React.FC = () => {
   return (
     <Router>
       {/* Navbar se incluye fuera de las rutas para que siempre esté visible */} 
+      <LanguageProvider>
       <Navbar />
       <Routes>
         {/* Rutas específicas para cada componente */}
@@ -46,6 +48,7 @@ const App: React.FC = () => {
         
       </Routes>
       <Footer />
+      </LanguageProvider>
     </Router>
   );
 };
