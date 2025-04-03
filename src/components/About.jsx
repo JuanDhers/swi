@@ -1,6 +1,8 @@
 // import ine from '../assets/about.jpeg'
 import ine1 from '../assets/ine4.jpeg'
+import { useLanguage } from './utils/LanguageContext';
 export const About = () => {
+  const { language } = useLanguage();
     return (
 
         <section className="w-full py-16 bg-gray-50">
@@ -12,7 +14,11 @@ export const About = () => {
           {/* Text Section */}
 
           <div className="md:w-1/2 p-4 md:pr-12">
+          {language === "es" ? (
+        <h2 className="text-4xl md:text-6xl my-8 text-stone-700 font-title tracking-wides font-bold text-center">Hola! soy Inés, </h2>
+      ) : (
             <h2 className="text-4xl md:text-6xl my-8 text-stone-700 font-title tracking-wides font-bold text-center">Hi! I’m Inés, </h2>
+      )}
             <p className="text-lg leading-relaxed text-gray-600">I'm a native Spanish teacher from Argentina, teaching since 2020. I've helped over a hundred students from all over the world. My classes focus on conversation to help you feel more confident and overcome any fear of speaking Spanish. Along the way, you'll also build your vocabulary, improve your grammar, and learn about Spanish culture, all while practicing real-life conversations.
               <br /><br />
               Besides teaching, I love reading, cooking, traveling, and being in touch with nature. My favorite vacation spot is in the mountains, where I enjoy trekking and breathing in the fresh air. I’m an animal lover and a proud vegetarian, reflecting my deep respect for all forms of life.
